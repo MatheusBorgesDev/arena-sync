@@ -17,7 +17,7 @@ export default function Home() {
         <Button variant="default">
           <LayoutDashboard className="mr-2 h-4 w-4" />
           Dashboard
-        </Button>
+            </Button>
         
         <Button variant="secondary">
           <CalendarDays className="mr-2 h-4 w-4" />
