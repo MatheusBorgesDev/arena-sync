@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -52,7 +52,7 @@
   --card-foreground: #09090b;
   --popover: #ffffff;
   --popover-foreground: #09090b;
-  --primary: hsl(82 100% 59%); 
+  --primary: hsl(82 100% 59%);
   --primary-foreground: #09090b;
   --secondary: #f4f4f5;
   --secondary-foreground: #18181b;
@@ -87,7 +87,7 @@
   --card-foreground: #fafafa;
   --popover: #18181b;
   --popover-foreground: #fafafa;
-  --primary: hsl(82 100% 59%); 
+  --primary: hsl(82 100% 59%);
   --primary-foreground: #09090b;
   --secondary: #27272a;
   --secondary-foreground: #fafafa;
