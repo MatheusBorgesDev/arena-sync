@@ -14,11 +14,12 @@ We will adopt a **Feature-based Architecture** combined with **Next.js Route Gro
 
 ### Directory Hierarchy:
 
-- **`app/(admin)` & `app/(customer)`**: Use of Route Groups to isolate layouts, middlewares, and specific module shells without affecting the URL structure.
-- **`src/features`**: The core business modules (e.g., `booking`, `courts`). Each feature encapsulates its own components, hooks (TanStack Query), and internal services.
-- **`src/core`**: Contains pure domain logic (Entities and Use Cases) in TypeScript. It is **strictly forbidden** to import React or framework-specific libraries here.
-- **`src/shared`**: Global UI Design System (shadcn/ui), utility hooks, and global composite components.
-- **`src/infra`**: Technical configurations and adapters (e.g., Axios configuration, API clients).
+- **`app/(admin)`**: Admin route group. Includes `admin-login/` (no sidebar) and `(dashboard)/` with sidebar integration: `layout.tsx`, `agenda/`, `dashboard/`.
+- **`app/(customer)`**: Customer route group. Includes `login/`, `register/` (no navbar) and `(protected)/` with navbar/footer: `home/`, `my-bookings/`.
+- **`src/core`**: Pure TypeScript logic (no React). Contains `entities/` (court, booking), `use-cases/` (e.g., `calculate-price`), and `types/` (status enums).
+- **`src/features`**: Encapsulated business modules: `auth/` (components, hooks, services, schemas), `booking/` (components, services), and `courts/` (components, services).
+- **`src/infra`**: Technical adapters and infrastructure. `api/api-client.ts`.
+- **`src/shared`**: Global Design System. `components/navigation/` (Sidebar, MobileNav), `components/ui/` (shadcn/ui), `providers/`, and `lib/`.
 
 ### Naming Convention:
 

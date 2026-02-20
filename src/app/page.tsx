@@ -15,13 +15,13 @@ export default function Home() {
 
       <div className="flex items-center gap-4 rounded-lg border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
         <Button variant="default" asChild>
-          <a href="/admin/dashboard">
+          <a href="/dashboard">
             <LayoutDashboard className="mr-2 h-4 w-4" />
             Dashboard Admin
           </a>
         </Button>
         <Button variant="secondary" asChild>
-          <a href="/explorer">
+          <a href="/home">
             <CalendarDays className="mr-2 h-4 w-4" />
             Explorar quadras
           </a>
