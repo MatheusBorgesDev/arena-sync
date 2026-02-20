@@ -16,7 +16,7 @@ import { Input } from '@/shared/components/ui/input';
 import { businessName } from '@/shared/constants/business';
 import { useLoginForm } from '../hooks/use-login-form';
 
-export const LoginForm = () => {
+export const AdminLoginForm = () => {
   const { register, handleSubmit, errors, handleLogin, isSubmitting } = useLoginForm();
 
   return (
@@ -56,7 +56,6 @@ export const LoginForm = () => {
               )}
             </div>
 
-            {/* Campo de Senha */}
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="password"
