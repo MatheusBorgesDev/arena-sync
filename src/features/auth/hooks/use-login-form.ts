@@ -1,6 +1,6 @@
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { loginSchema, type LoginFormValues } from "../schemas/login-schema";
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { loginSchema, type LoginFormValues } from '../schemas/login-schema';
 
 export const useLoginForm = () => {
   const {
@@ -9,17 +9,17 @@ export const useLoginForm = () => {
     formState: { errors, isSubmitting },
   } = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
-    mode: "onChange",
+    mode: 'onChange',
     defaultValues: {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
     },
   });
 
   const handleLogin = async (data: LoginFormValues) => {
     // Simulação de chamada de API
     await new Promise((resolve) => setTimeout(resolve, 2000));
-    console.log("Login realizado:", data);
+    console.log('Login realizado:', data);
   };
 
   return {
@@ -29,5 +29,4 @@ export const useLoginForm = () => {
     handleLogin,
     isSubmitting,
   };
-
 };
