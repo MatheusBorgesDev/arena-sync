@@ -1,35 +1,39 @@
-# ADR 005: Project Folder Structure
+# ADR 005: Project Folder Structure and Module Isolation
 
 - **Status:** Accepted
-- **Date:** 2026-02-05
+- **Date:** 2026-02-20 (Revised)
 - **Author:** Matheus Borges
 
 ## 1. Context
 
-The standard organization of React/Next.js projects often involves grouping files by "type" (e.g., all interfaces in `/interfaces`, all components in `/components`). As the **ArenaSync** system grows, this approach makes maintenance difficult because a single business feature (such as "Booking") ends up scattered across several distant folders, increasing the cognitive load required to locate related files.
+The **ArenaSync** system requires a structure that supports complex interactive flows for two distinct user journeys: **Administrative** (management) and **Customer** (booking). A standard "group by type" organization (e.g., `/components`, `/hooks`) would lead to high cognitive load and scattered business logic. We need a structure that enforces **Clean Architecture** and isolates these modules while sharing a common core and design system.
 
 ## 2. Decision
 
-We will adopt a **Feature-based Architecture** combined with **Clean Architecture** principles, where code is organized around business modules.
+We will adopt a **Feature-based Architecture** combined with **Next.js Route Groups** to organize the project around business modules and access levels.
 
-The directory structure will be organized as follows:
+### Directory Hierarchy:
 
-- **`src/app`**: Exclusive for Next.js App Router routing and page definitions.
-- **`src/features`**: The core of the application. Each subfolder represents a business domain (e.g., `booking`, `courts`, `auth`). Each feature encapsulates its own components, hooks, and internal services.
-- **`src/core`**: Contains pure domain logic (Entities and Use Cases) in TypeScript, isolated from frameworks.
-- **`src/shared`**: Global UI Design System (stateless components), utility hooks, and helper functions used across multiple features.
-- **`src/infra`**: Technical configurations and external library instances (e.g., Axios configuration, API clients).
+- **`app/(admin)` & `app/(customer)`**: Use of Route Groups to isolate layouts, middlewares, and specific module shells without affecting the URL structure.
+- **`src/features`**: The core business modules (e.g., `booking`, `courts`). Each feature encapsulates its own components, hooks (TanStack Query), and internal services.
+- **`src/core`**: Contains pure domain logic (Entities and Use Cases) in TypeScript. It is **strictly forbidden** to import React or framework-specific libraries here.
+- **`src/shared`**: Global UI Design System (shadcn/ui), utility hooks, and global composite components.
+- **`src/infra`**: Technical configurations and adapters (e.g., Axios configuration, API clients).
+
+### Naming Convention:
+
+- All files and folders must follow the **`kebab-case`** pattern (e.g., `appointment-card.tsx`).
 
 ## 3. Consequences
 
 ### Pros:
 
-- **High Modularity:** It is easy to identify everything that belongs to a specific business feature.
-- **Scalability:** New modules can be added without cluttering global folders.
-- **Low Coupling:** Facilitates future feature extraction or deep refactoring.
-- **Onboarding:** New developers can understand "what the system does" just by looking at the `/features` folder.
+- **Module Isolation**: Clear separation between Admin and Customer logic via Route Groups.
+- **High Modularity**: Easy identification of business features within `src/features`.
+- **Domain Integrity**: The `src/core` layer remains agnostic to the framework, facilitating testing and maintenance.
+- **Scalability**: New modules (like "Partner") can be added without side effects on existing ones.
 
 ### Cons:
 
-- **Learning Curve:** Requires discipline to avoid circular dependencies between features.
-- **Initial Complexity:** Requires more thought on where to place a new file (is it shared or feature-specific?).
+- **Initial Complexity**: Requires discipline to maintain the boundaries between layers (e.g., not importing a feature into `shared`).
+- **Boilerplate**: More initial folders compared to a flat structure.
