@@ -1,9 +1,9 @@
-import { LoginForm } from "@/features/auth/components/login-form";
+import { UserLoginForm } from '@/features/auth/components/user-login-form';
 
 export default function LoginPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4 relative dark:bg-linear-to-br from-background via-zinc-800 to-background">
-      <LoginForm />
+    <div className="bg-background from-background to-background relative flex min-h-screen items-center justify-center via-zinc-800 px-4 dark:bg-linear-to-br">
+      <UserLoginForm />
     </div>
   );
 }
