@@ -1,8 +1,3 @@
-/**
- * Entidade Agendamento.
- * TS puro, sem React.
- */
-
 import type { BookingStatus } from '@/core/types/booking-status';
 
 export interface Booking {

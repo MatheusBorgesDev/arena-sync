@@ -1,8 +1,3 @@
-/**
- * Caso de uso: calcular preço de um agendamento.
- * TS puro, sem React.
- */
-
 export interface CalculatePriceInput {
   durationMinutes: number;
   pricePerHourCents: number;

@@ -1,9 +1,5 @@
 'use client';
 
-/**
- * Hero/banner da quadra (nome, imagem, status).
- */
-
 interface CourtHeroProps {
   name: string;
   status?: string;

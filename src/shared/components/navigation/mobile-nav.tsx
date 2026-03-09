@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Home, CalendarDays, User } from 'lucide-react';
-import { cn } from '@/shared/lib/utils'; // Usando nosso utility
+import { cn } from '@/shared/lib/utils';
 
 const navItems = [
   { label: 'Início', href: '/home', icon: Home },

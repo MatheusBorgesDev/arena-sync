@@ -1,7 +1,3 @@
-/**
- * Enums e tipos compartilhados de status de agendamento.
- */
-
 export type BookingStatus = 'pending' | 'confirmed' | 'cancelled' | 'completed';
 
 export const BOOKING_STATUS_LABEL: Record<BookingStatus, string> = {

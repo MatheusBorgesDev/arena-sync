@@ -1,9 +1,5 @@
 'use client';
 
-/**
- * Formulário de configurações da quadra (admin).
- */
-
 export function SettingsForm() {
   return (
     <div className="space-y-4">

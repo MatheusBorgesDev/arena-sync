@@ -17,7 +17,6 @@ export const useLoginForm = () => {
   });
 
   const handleLogin = async (data: LoginFormValues) => {
-    // Simulação de chamada de API
     await new Promise((resolve) => setTimeout(resolve, 2000));
     console.log('Login realizado:', data);
   };

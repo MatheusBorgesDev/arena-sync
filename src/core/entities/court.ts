@@ -1,8 +1,3 @@
-/**
- * Entidade Quadra.
- * TS puro, sem React.
- */
-
 export interface Court {
   id: string;
   name: string;

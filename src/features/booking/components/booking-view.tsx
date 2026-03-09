@@ -35,18 +35,12 @@ export const BookingView = ({ className }: BookingViewProps): React.ReactElement
 
   return (
     <div className={cn('mx-auto w-full max-w-5xl p-4 md:p-8', className)}>
-      {/* Cabeçalho da Página */}
       <header className="mb-8">
         <h1 className="text-2xl font-bold text-white md:text-3xl">Agendar</h1>
         <p className="text-sm text-neutral-400 md:text-base">Escolha seu horário</p>
       </header>
 
-      {/* Layout Principal: 
-          Mobile: flex-col (empilhado)
-          Desktop: grid com 2 colunas (Calendário à esquerda, Horários à direita) 
-      */}
       <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[350px_1fr] lg:items-start lg:gap-12">
-        {/* Lado Esquerdo (Desktop) / Topo (Mobile): Seletor de Dias */}
         <section aria-label="Seleção de Data">
           <DaySelector
             selectedDate={selectedDate}
@@ -55,7 +49,6 @@ export const BookingView = ({ className }: BookingViewProps): React.ReactElement
           />
         </section>
 
-        {/* Lado Direito (Desktop) / Base (Mobile): Grade de Horários */}
         <section aria-label="Seleção de Horário">
           <TimeSlotGrid slots={MOCK_SLOTS} onSelectSlot={handleSlotSelect} />
         </section>

@@ -1,9 +1,5 @@
 'use client';
 
-/**
- * Sidebar do shell administrativo.
- */
-
 interface SidebarProps {
   children?: React.ReactNode;
 }
